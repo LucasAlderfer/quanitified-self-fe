@@ -9,3 +9,9 @@ header {
   display: inline-block;
   padding: 10px;
 }
+
+.total-counts {
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+}

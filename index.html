@@ -8,16 +8,15 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">QUANTIFYself</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Features</a>
-        <a class="nav-item nav-link" href="#">Pricing</a>
-        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        <a class="nav-item nav-link active" href="index.html">Meals<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="foods.html">Foods</a>
+        <a class="nav-item nav-link" href="#">Calendar</a>
       </div>
     </div>
   </nav>
@@ -52,6 +51,20 @@
         </table>
       </section>
     </article>
+    <div class="total-counts">
+      <div>
+        <h3 class="font-weight-bold d-inline-flex">Total Consumed: </h3>
+        <h3 id="total-calories-consumed" class="d-inline-flex"></h3>
+      </div>
+      <div>
+        <h3 class="font-weight-bold d-inline-flex">Total Goal: </h3>
+        <h3 id="total-goal-calories" class="d-inline-flex"></h3>
+      </div>
+      <div>
+        <h3 class="font-weight-bold d-inline-flex">Total Remaining: </h3>
+        <h3 id="total-calories-remaining" class="d-inline-flex"></h3>
+      </div>
+    </div>
     <a href="foods.html"><button class="default-button">Create New</button></a>
 
   <script
