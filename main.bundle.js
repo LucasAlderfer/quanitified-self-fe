@@ -95,12 +95,11 @@
 	var getMealFoods = function getMealFoods(meal) {
 	  $("." + meal.name + "-table").html('');
 	  meal.foods.forEach(function (food) {
-	    $("." + meal.name + "-table").append("<tr>\n        <td class=\"food-name\">" + food.name + "</td>\n        <td class=\"food-calories\">" + food.calories + " Cal</td>\n        <td class=\"trash-square\">\n          <a class=\"btn btn-sm trash-btn\" id=\"" + meal.id + " " + food.id + "\" aria-label=\"Delete\">\n            <i class=\"far fa-trash-alt\" aria-hidden=\"true\"></i>\n          </a>\n        </td>\n      </tr>");
+	    $("." + meal.name + "-table").append("<tr>\n        <td class=\"food-name\">" + food.name + "</td>\n        <td class=\"food-calories\">" + food.calories + " Cal</td>\n        <td class=\"trash-square\">\n          <i class=\"btn btn-sm trash-btn far fa-trash-alt\" id=\"" + meal.id + " " + food.id + "\" aria-label=\"Delete\" aria-hidden=\"true\"></i>\n        </td>\n      </tr>");
 	  });
 	  addCaloriesConsumed(meal.name, meal.foods);
 	  addGoalCalories(meal.name);
 	  addRemainingCalories(meal.name, meal.foods);
-	  // <td class="food-id hidden">${food.id}</td>
 	};
 
 	var addCaloriesConsumed = function addCaloriesConsumed(mealName, mealFoods) {
@@ -243,12 +242,18 @@
 	};
 
 	var checkMealFoodPostStatus = function checkMealFoodPostStatus(status) {
-	  if (status.message.includes("Successfully")) {
-	    getDiaryFoods();
-	    $(".dropdown-toggle").html('Add a Food');
-	  } else {
-	    $(".dropdown-toggle").html('Add a Error');
-	  }
+	  getDiaryFoods();
+	  resetDropDown();
+	  // if (status.message.includes("Successfully")) {
+	  //   getDiaryFoods();
+	  //   $(`.dropdown-toggle`).html('Add a Food')
+	  // } else {
+	  //   $(`.dropdown-toggle`).html('Error')
+	  // }
+	};
+
+	var resetDropDown = function resetDropDown() {
+	  $(".dropdown-menu").append("<a class=\"dropdown-item\">Add a Food</a>");
 	};
 
 	$(".dropdown-menu, .dropdown-item").click(function (event) {
@@ -288,7 +293,16 @@
 	$(".meal-table, .trash-btn").click(function (event) {
 	  var ids = event.target.id.split(' ');
 	  var mealId = ids[0];
-	  var foodId = event.target.id[1];
+	  var foodId = ids[1];
+	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/" + mealId + "/foods/" + foodId, {
+	    method: "DELETE"
+	  }).then(function (response) {
+	    return response.json();
+	  }).then(function (status) {
+	    return checkMealFoodPostStatus(status);
+	  }).catch(function (error) {
+	    return console.error({ error: error });
+	  });
 	});
 
 	module.exports = {
