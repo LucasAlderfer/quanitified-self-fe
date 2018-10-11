@@ -51,18 +51,10 @@
 	    var diaryRequests = __webpack_require__(1);
 	    diaryRequests.getDiaryFoods();
 	    diaryRequests.getFoodsForDropDown();
-	  }
-	});
-
-	$(document).ready(function () {
-	  if ($(".food-form").length) {
+	  } else if ($(".food-form").length) {
 	    var foodsRequests = __webpack_require__(2);
 	    foodsRequests.getFoods();
-	  }
-	});
-
-	$(document).ready(function () {
-	  if ($("#my-calendar").length) {
+	  } else if ($("#my-calendar").length) {
 	    var calendar = __webpack_require__(3);
 	    calendar.makeCalendar();
 	  }
