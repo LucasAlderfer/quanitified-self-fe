@@ -1,0 +1,22 @@
+.header {
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.table-container {
+  width: 23vw;
+  display: inline-block;
+  padding: 10px;
+}
+
+.total-counts {
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}

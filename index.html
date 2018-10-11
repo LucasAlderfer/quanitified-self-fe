@@ -3,25 +3,81 @@
 <head>
   <meta charset="utf-8">
   <title>Quantified Self - Diary</title>
+  <link rel="stylesheet" type="text/css" href="lib/diary.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    <a class="navbar-brand" href="#">QUANTIFYself</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.html">Meals<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="foods.html">Foods</a>
+        <a class="nav-item nav-link" href="#">Calendar</a>
+      </div>
+    </div>
+  </nav>
+  <h1 class="text-center">Main Diary</h1>
+  <article>
+    <div class="dropdown text-center">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add a Food
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+      </div>
+  </article>
+  <article class="text-center">
+    <section class="table-container">
+      <button type="button" id="breakfast-btn" class="btn btn-info btn-lg header">Breakfast</button>
+      <table class="table table-bordered">
+        <tbody class="Breakfast-table meal-table">
+        </tbody>
+      </table>
+    </section>
+    <section class="table-container">
+      <button type="button" id="lunch-btn" class="btn btn-info btn-lg header">Lunch</button>
+      <table class="table table-bordered">
+        <tbody class="Lunch-table meal-table">
+        </tbody>
+      </table>
+    </section>
+    <section class="table-container">
+      <button type="button" id="dinner-btn" class="btn btn-info btn-lg header">Dinner</button>
+      <table class="table table-bordered">
+        <tbody class="Dinner-table meal-table">
+        </tbody>
+      </table>
+    </section>
+    <section class="table-container">
+      <button type="button" id="snack-btn" class="btn btn-info btn-lg header">Snacks</button>
+      <table class="table table-bordered">
+        <tbody class="Snack-table meal-table">
+        </tbody>
+      </table>
+    </section>
+  </article>
+  <div class="total-counts">
+    <div>
+      <h3 class="font-weight-bold d-inline-flex">Total Consumed: </h3>
+      <h3 id="total-calories-consumed" class="font-weight-bold d-inline-flex"></h3>
+    </div>
+    <div>
+      <h3 class="font-weight-bold d-inline-flex">Total Goal: </h3>
+      <h3 id="total-goal-calories" class="font-weight-bold d-inline-flex"></h3>
+    </div>
+    <div>
+      <h3 class="font-weight-bold d-inline-flex">Total Remaining: </h3>
+      <h3 id="total-calories-remaining" class="font-weight-bold d-inline-flex"></h3>
     </div>
   </div>
-  </nav>
-    <a href="foods.html"><button class="default-button">Create New</button></a>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <div id="selected-food-id" class="hidden"></div>
+  <script
+    src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+  </script>
   <script src="main.bundle.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
