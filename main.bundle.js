@@ -104,7 +104,7 @@
 
 	var addCaloriesConsumed = function addCaloriesConsumed(mealName, mealFoods) {
 	  var totalCaloriesConsumed = calculateCaloriesConsumed(mealName, mealFoods);
-	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Consumed</td>\n      <td class=\"total-meal-calories font-weight-bold\">" + totalCaloriesConsumed + " Cal</td>\n    </tr>");
+	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Consumed</td>\n      <td class=\"total-meal-calories font-weight-bold\">" + totalCaloriesConsumed + " Cal</td>\n      <td> </td>\n    </tr>");
 	};
 
 	var calculateCaloriesConsumed = function calculateCaloriesConsumed(mealName, mealFoods) {
@@ -117,7 +117,7 @@
 	};
 
 	var addGoalCalories = function addGoalCalories(mealName) {
-	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Goal</td>\n      <td class=\"goal-meal-calories font-weight-bold\">" + findCalorieGoal(mealName) + " Cal</td>\n    </tr>");
+	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Goal</td>\n      <td class=\"goal-meal-calories font-weight-bold\">" + findCalorieGoal(mealName) + " Cal</td>\n      <td> </td>\n    </tr>");
 	};
 
 	var findCalorieGoal = function findCalorieGoal(mealName) {
@@ -133,7 +133,7 @@
 	};
 
 	var addRemainingCalories = function addRemainingCalories(mealName, mealFoods) {
-	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Remaining</td>\n      <td class=\"remaining-meal-calories font-weight-bold\">" + findRemainingCalories(mealName, mealFoods) + " Cal</td>\n    </tr>");
+	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Remaining</td>\n      <td class=\"remaining-meal-calories font-weight-bold\">" + findRemainingCalories(mealName, mealFoods) + " Cal</td>\n      <td> </td>\n    </tr>");
 	};
 
 	var findRemainingCalories = function findRemainingCalories(mealName, mealFoods) {
@@ -244,22 +244,26 @@
 	var checkMealFoodPostStatus = function checkMealFoodPostStatus(status) {
 	  getDiaryFoods();
 	  resetDropDown();
-	  // if (status.message.includes("Successfully")) {
-	  //   getDiaryFoods();
-	  //   $(`.dropdown-toggle`).html('Add a Food')
-	  // } else {
-	  //   $(`.dropdown-toggle`).html('Error')
-	  // }
+	  hideInstructions();
 	};
 
 	var resetDropDown = function resetDropDown() {
-	  $(".dropdown-menu").append("<a class=\"dropdown-item\">Add a Food</a>");
+	  $("#dropdownMenuButton").html("Add a Food");
+	};
+
+	var showInstructions = function showInstructions() {
+	  $("#instructions").html("Click on a meal to add your selected food.");
+	};
+
+	var hideInstructions = function hideInstructions() {
+	  $("#instructions").html("&nbsp;");
 	};
 
 	$(".dropdown-menu, .dropdown-item").click(function (event) {
 	  var selected = $(event.target).text();
 	  $(".dropdown-toggle").html(selected);
 	  $("#selected-food-id").html(event.target.id);
+	  showInstructions();
 	});
 
 	$("#breakfast-btn").click(function (event) {
