@@ -95,17 +95,16 @@
 	var getMealFoods = function getMealFoods(meal) {
 	  $("." + meal.name + "-table").html('');
 	  meal.foods.forEach(function (food) {
-	    $("." + meal.name + "-table").append("<tr>\n        <td class=\"food-name\">" + food.name + "</td>\n        <td class=\"food-calories\">" + food.calories + " Cal</td>\n        <td class=\"trash-square\">\n          <a class=\"btn btn-sm trash-btn\" id=\"" + meal.id + " " + food.id + "\" aria-label=\"Delete\">\n            <i class=\"far fa-trash-alt\" aria-hidden=\"true\"></i>\n          </a>\n        </td>\n      </tr>");
+	    $("." + meal.name + "-table").append("<tr>\n        <td class=\"food-name\">" + food.name + "</td>\n        <td class=\"food-calories\">" + food.calories + " Cal</td>\n        <td class=\"trash-square\">\n          <i class=\"btn btn-sm trash-btn far fa-trash-alt\" id=\"" + meal.id + " " + food.id + "\" aria-label=\"Delete\" aria-hidden=\"true\"></i>\n        </td>\n      </tr>");
 	  });
 	  addCaloriesConsumed(meal.name, meal.foods);
 	  addGoalCalories(meal.name);
 	  addRemainingCalories(meal.name, meal.foods);
-	  // <td class="food-id hidden">${food.id}</td>
 	};
 
 	var addCaloriesConsumed = function addCaloriesConsumed(mealName, mealFoods) {
 	  var totalCaloriesConsumed = calculateCaloriesConsumed(mealName, mealFoods);
-	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Consumed</td>\n      <td class=\"total-meal-calories font-weight-bold\">" + totalCaloriesConsumed + " Cal</td>\n    </tr>");
+	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Consumed</td>\n      <td class=\"total-meal-calories font-weight-bold\">" + totalCaloriesConsumed + " Cal</td>\n      <td> </td>\n    </tr>");
 	};
 
 	var calculateCaloriesConsumed = function calculateCaloriesConsumed(mealName, mealFoods) {
@@ -118,7 +117,7 @@
 	};
 
 	var addGoalCalories = function addGoalCalories(mealName) {
-	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Goal</td>\n      <td class=\"goal-meal-calories font-weight-bold\">" + findCalorieGoal(mealName) + " Cal</td>\n    </tr>");
+	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Goal</td>\n      <td class=\"goal-meal-calories font-weight-bold\">" + findCalorieGoal(mealName) + " Cal</td>\n      <td> </td>\n    </tr>");
 	};
 
 	var findCalorieGoal = function findCalorieGoal(mealName) {
@@ -134,7 +133,7 @@
 	};
 
 	var addRemainingCalories = function addRemainingCalories(mealName, mealFoods) {
-	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Remaining</td>\n      <td class=\"remaining-meal-calories font-weight-bold\">" + findRemainingCalories(mealName, mealFoods) + " Cal</td>\n    </tr>");
+	  $("." + mealName + "-table").append("<tr>\n      <td class=\"font-weight-bold\">Remaining</td>\n      <td class=\"remaining-meal-calories font-weight-bold\">" + findRemainingCalories(mealName, mealFoods) + " Cal</td>\n      <td> </td>\n    </tr>");
 	};
 
 	var findRemainingCalories = function findRemainingCalories(mealName, mealFoods) {
@@ -243,18 +242,28 @@
 	};
 
 	var checkMealFoodPostStatus = function checkMealFoodPostStatus(status) {
-	  if (status.message.includes("Successfully")) {
-	    getDiaryFoods();
-	    $(".dropdown-toggle").html('Add a Food');
-	  } else {
-	    $(".dropdown-toggle").html('Add a Error');
-	  }
+	  getDiaryFoods();
+	  resetDropDown();
+	  hideInstructions();
+	};
+
+	var resetDropDown = function resetDropDown() {
+	  $("#dropdownMenuButton").html("Add a Food");
+	};
+
+	var showInstructions = function showInstructions() {
+	  $("#instructions").html("Click on a meal to add your selected food.");
+	};
+
+	var hideInstructions = function hideInstructions() {
+	  $("#instructions").html("&nbsp;");
 	};
 
 	$(".dropdown-menu, .dropdown-item").click(function (event) {
 	  var selected = $(event.target).text();
 	  $(".dropdown-toggle").html(selected);
 	  $("#selected-food-id").html(event.target.id);
+	  showInstructions();
 	});
 
 	$("#breakfast-btn").click(function (event) {
@@ -288,7 +297,16 @@
 	$(".meal-table, .trash-btn").click(function (event) {
 	  var ids = event.target.id.split(' ');
 	  var mealId = ids[0];
-	  var foodId = event.target.id[1];
+	  var foodId = ids[1];
+	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/" + mealId + "/foods/" + foodId, {
+	    method: "DELETE"
+	  }).then(function (response) {
+	    return response.json();
+	  }).then(function (status) {
+	    return checkMealFoodPostStatus(status);
+	  }).catch(function (error) {
+	    return console.error({ error: error });
+	  });
 	});
 
 	module.exports = {
