@@ -195,6 +195,5 @@
 	  getDiaryFoods: getDiaryFoods,
 	  getFoodsForDropDown: getFoodsForDropDown
 	};
-
 /***/ })
 /******/ ]);
