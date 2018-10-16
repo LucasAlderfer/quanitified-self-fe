@@ -67,7 +67,7 @@
 	"use strict";
 
 	var getDiaryFoods = function getDiaryFoods() {
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals").then(function (response) {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals").then(function (response) {
 	    return response.json();
 	  }).then(function (meals) {
 	    return getMeals(meals);
@@ -166,7 +166,7 @@
 	};
 
 	var getFoodsForDropDown = function getFoodsForDropDown() {
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/foods").then(function (response) {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/foods").then(function (response) {
 	    return response.json();
 	  }).then(function (foods) {
 	    return populateDropDown(foods);
@@ -182,7 +182,7 @@
 	};
 
 	var addBreakfastFood = function addBreakfastFood(food) {
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/1/foods/" + $("#selected-food-id").text(), {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals/1/foods/" + $("#selected-food-id").text(), {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json; charset=utf-8" }
 	  }).then(function (response) {
@@ -195,7 +195,7 @@
 	};
 
 	var addLunchFood = function addLunchFood(food) {
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/3/foods/" + $("#selected-food-id").text(), {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals/3/foods/" + $("#selected-food-id").text(), {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json; charset=utf-8" }
 	  }).then(function (response) {
@@ -208,7 +208,7 @@
 	};
 
 	var addDinnerFood = function addDinnerFood(food) {
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/4/foods/" + $("#selected-food-id").text(), {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals/4/foods/" + $("#selected-food-id").text(), {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json; charset=utf-8" }
 	  }).then(function (response) {
@@ -221,7 +221,7 @@
 	};
 
 	var addSnackFood = function addSnackFood(food) {
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/2/foods/" + $("#selected-food-id").text(), {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals/2/foods/" + $("#selected-food-id").text(), {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json; charset=utf-8" }
 	  }).then(function (response) {
@@ -290,7 +290,7 @@
 	  var ids = event.target.id.split(' ');
 	  var mealId = ids[0];
 	  var foodId = ids[1];
-	  fetch("https://fast-meadow-36413.herokuapp.com/api/v1/meals/" + mealId + "/foods/" + foodId, {
+	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals/" + mealId + "/foods/" + foodId, {
 	    method: "DELETE"
 	  }).then(function (response) {
 	    return response.json();
@@ -313,7 +313,7 @@
 	'use strict';
 
 	var getFoods = function getFoods() {
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/foods').then(function (response) {
+	  fetch('https://blooming-sea-65150.herokuapp.com/api/v1/foods').then(function (response) {
 	    return response.json();
 	  }).then(function (foods) {
 	    return renderFood(foods);
@@ -331,7 +331,7 @@
 	$('#food-table-info, .food-item-delete-btn').on('click', function () {
 	  var food = $(event.target);
 	  var foodId = parseInt(food[0].id.substring(10));
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/foods/' + foodId, { method: 'DELETE' });
+	  fetch('https://blooming-sea-65150.herokuapp.com/api/v1/foods/' + foodId, { method: 'DELETE' });
 	  event.target.parentNode.parentNode.remove();
 	});
 
@@ -339,7 +339,7 @@
 	  event.preventDefault();
 	  var foodName = $('#foodName').val();
 	  var foodCal = $('#foodCalories').val();
-	  fetch('https://fast-meadow-36413.herokuapp.com/api/v1/foods', {
+	  fetch('https://blooming-sea-65150.herokuapp.com/api/v1/foods', {
 	    method: 'POST',
 	    headers: { 'Content-Type': 'application/json' },
 	    body: JSON.stringify({ 'food': { "name": '' + foodName, "calories": '' + foodCal } })
