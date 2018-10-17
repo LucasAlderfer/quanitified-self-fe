@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" type='text/css' href="./lib/foods.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Quantified Self - Manage Foods</title>
@@ -40,17 +41,22 @@
         <input id="food-filter-input">
       </form>
     </div>
-    <article class="food-headers">
-      <p class="name-header">
-        <strong>Name</strong>
-      </p>
-      <p class="calorie-header">
-        <strong>Calories</strong>
-      </p>
-      <div class="hidden"></div>
-    </article>
-    <div id="food-table-info"></div>
-    <div id="search-results"></div>
+    <div class="food-table">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Delete</th>
+            <th scpoe="col">Save</th>
+          </tr>
+        </thead>
+        <tbody id="food-table-info">
+        </tbody>
+        <tbody id="search-results">
+        </tbody>
+      </table>
+    </div>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="main.bundle.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
