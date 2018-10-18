@@ -11,7 +11,7 @@ You can search through the listed foods by typing in the name of a food in the '
 You can change the information of any food listed by just clicking into the field, either the name or calories of the listed food, and then the 'Save' button will activate when a change has been made and once clicked the database will save the changes.  
 Foods can be removed from the list by clicking on the Delete button on the corresponding row.  
 Recipes for specific foods, or recipes that contiain multiple foods can be found by checking the box for a food or multiple foods and then clicking on the 'Look for Recipes' button at the bottom of the list.  This button will redirect to a new page with a list of recipes being served from the Yummly API.
-
+<img width="1440" alt="screen shot 2018-10-17 at 9 58 10 pm" src="https://user-images.githubusercontent.com/36676968/47130664-d60d8c80-d257-11e8-902b-99be312e4954.png">
 
 #### Meals
 The meals page allows you to assign foods to meals (Breakfast, Lunch, Dinner, and Snacks). Each food added will total the meal calories and be added to the total calorie count, shown at the bottom.
