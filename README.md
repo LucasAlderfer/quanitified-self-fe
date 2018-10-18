@@ -8,14 +8,16 @@ https://jplynch35.github.io/quantified-self-fe/
 #### Foods
 
 #### Meals
-The meals page allows the user to assign foods to meals (Breakfast, Lunch, Dinner, and Snacks). Each food added will total the meal calories and be added to the total calorie count, shown at the bottom.
+The meals page allows you to assign foods to meals (Breakfast, Lunch, Dinner, and Snacks). Each food added will total the meal calories and be added to the total calorie count, shown at the bottom.
 <img width="1440" alt="screen shot 2018-10-17 at 6 54 58 pm" src="https://user-images.githubusercontent.com/32905782/47125569-891ebb80-d241-11e8-8470-9d439ad796a7.png">
 
 In order to add a food to a meal, click on the dropdown menu titled 'Add a Food'.  This will show you all the foods you have available form the foods page.  Select your chosen food and then click on one of the meal names displayed above each table.  This will add the food to the selected meal and update the table.
-<img width="1440" alt="screen shot 2018-10-17 at 6 55 12 pm" src="https://user-images.githubusercontent.com/32905782/47125641-d8fd8280-d241-11e8-9022-d1eb13bdb186.png">
+<img width="1437" alt="screen shot 2018-10-17 at 6 55 12 pm" src="https://user-images.githubusercontent.com/32905782/47125720-4c06f900-d242-11e8-8790-4633f6bf0904.png">
 
+You can also remove any of the foods from a meal by clicking on the trash icon next associated with the chosen food.
 
 #### Recipes
+The recipes page will show you recipe names and pictures that include the ingredients chosen on the foods page.  You simply check the boxes next to the foods you want to include in the ingredients list, and then click the recipes button.  You will be directed to the recipes page with the associated table.
 
 ## Initial Setup
 
