@@ -25,3 +25,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.food-table td:first-child {
+  width: 15vw;
+}
