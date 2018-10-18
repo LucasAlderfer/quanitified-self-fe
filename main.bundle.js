@@ -56,7 +56,6 @@
 	    foodsRequests.getFoods();
 	  } else if ($("#recipe-table").length) {
 	    var foods = arguments[0].ajaxSettings.url.substring(62).split('+');
-	    debugger;
 	    var recipe = __webpack_require__(3);
 	    recipe.getRecipes(foods);
 	  }
