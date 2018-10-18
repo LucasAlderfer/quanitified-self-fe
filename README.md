@@ -18,7 +18,7 @@ You can also remove any of the foods from a meal by clicking on the trash icon n
 
 #### Recipes
 The recipes page will show you recipe names and pictures that include the ingredients chosen on the foods page.  You simply check the boxes next to the foods you want to include in the ingredients list, and then click the recipes button.  You will be directed to the recipes page with the associated table.
-
+<img width="1426" alt="screen shot 2018-10-17 at 8 58 45 pm" src="https://user-images.githubusercontent.com/36676968/47130196-bd9c7280-d255-11e8-9e54-bbc8f23e7a8b.png">
 ## Initial Setup
 
 1. Clone the repository down locally
