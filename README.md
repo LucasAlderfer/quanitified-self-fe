@@ -15,7 +15,7 @@ QUANTIFIEDself is a web application that tracks food with calories, and four dif
   ```
 2. CD into the `quantified-self-fe` directory
 
-3. Install the dependencies of the starter kit
+3. Install the dependencies
 
   ```
   npm install
