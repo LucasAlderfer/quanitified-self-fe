@@ -55,8 +55,9 @@
 	    var foodsRequests = __webpack_require__(2);
 	    foodsRequests.getFoods();
 	  } else if ($("#recipe-table").length) {
+	    var foods = arguments[0].ajaxSettings.url.substring(37).split('+');
 	    var recipe = __webpack_require__(3);
-	    recipe.getRecipes();
+	    recipe.getRecipes(foods);
 	  }
 	});
 
@@ -352,6 +353,20 @@
 	  });
 	});
 
+	$('#submit-foods-button').on('click', function () {
+	  var checkedArray = [];
+	  var checkGroup = $('.food-table').find('input[type="checkbox"]');
+	  checkGroup.each(function (element) {
+	    if (this.checked) {
+	      checkedArray.push(this.name.slice(0, -1));
+	    }
+	  });
+	  var checkedString = checkedArray.join('+');
+	  if (checkedArray.length != 0) {
+	    window.location = '/recipes.html?q=' + checkedString;
+	  }
+	});
+
 	$('.food-table').on('click', '.food-item-save-btn', function () {
 	  event.preventDefault();
 	  var saveButton = event.target;
@@ -457,8 +472,8 @@
 
 	'use strict';
 
-	getRecipes = function getRecipes(ingredients) {
-	  parameters = '&allowedIngredient[]=' + ingredients.join('&allowedIngredient[]=');
+	var getRecipes = function getRecipes(ingredients) {
+	  var parameters = '&allowedIngredient[]=' + ingredients.join('&allowedIngredient[]=');
 	  fetch('http://api.yummly.com/v1/api/recipes?' + parameters, {
 	    headers: {
 	      'X-Yummly-App-ID': '26ca64db',
@@ -473,10 +488,15 @@
 	  });
 	};
 
-	populateTable = function populateTable(recipes) {
-	  recipes.forEach(function (recipe) {
-	    $('#recipe-table').append('<tr>\n        <td id="recipe-name">recipe.recipeName</td>\n        <td id="recipe-picture">recipe.smallImageUrls[0]</td>\n      </tr>');
+	var populateTable = function populateTable(recipes) {
+	  recipes.matches.forEach(function (recipe) {
+	    var ingredientsString = recipe.ingredients.join(", ");
+	    $('#recipe-table').append('<tr>\n        <td id="recipe-name">' + recipe.recipeName + '</td>\n        <td id="recipe-picture"><img src="' + recipe.smallImageUrls[0] + '"></td>\n        <td id="recipe-ingredients">' + ingredientsString + '</td>\n      </tr>');
 	  });
+	};
+
+	module.exports = {
+	  getRecipes: getRecipes
 	};
 
 /***/ })
