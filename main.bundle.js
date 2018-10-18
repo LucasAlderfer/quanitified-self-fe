@@ -183,6 +183,7 @@
 	};
 
 	var addBreakfastFood = function addBreakfastFood(food) {
+	  var foodId = parseInt($("#selected-food-id").text());
 	  fetch("https://blooming-sea-65150.herokuapp.com/api/v1/meals/2/foods/" + foodId, {
 	    method: "POST",
 	    headers: { "Content-Type": "application/json; charset=utf-8" }
@@ -333,11 +334,11 @@
 	};
 
 	$('.food-table').on('click', '.food-item-delete-btn', function () {
-	  var food = $(event.target);
+	  var food = $(event.target.parentNode);
 	  var foodId = parseInt(food[0].id.substring(10));
 	  fetch('https://blooming-sea-65150.herokuapp.com/api/v1/foods/' + foodId, { method: 'DELETE' });
 
-	  event.target.parentNode.parentNode.parentNode.remove();
+	  event.target.parentNode.parentNode.parentNode.parentNode.remove();
 	});
 
 	$('.food-table').on('click', '.food-item-name, .food-item-calories', function () {
@@ -363,15 +364,15 @@
 	  });
 	  var checkedString = checkedArray.join('+');
 	  if (checkedArray.length != 0) {
-	    window.location = '/recipes.html?q=' + checkedString;
+	    window.location = '/quantified-self-fe/recipes.html?q=' + checkedString;
 	  }
 	});
 
 	$('.food-table').on('click', '.food-item-save-btn', function () {
 	  event.preventDefault();
 	  var saveButton = event.target;
-	  var newName = event.target.parentNode.parentNode.parentNode.firstElementChild.innerText;
-	  var newCalories = parseInt(event.target.parentNode.parentNode.parentNode.firstElementChild.nextElementSibling.innerText);
+	  var newName = event.target.parentNode.parentNode.parentNode.firstElementChild.nextElementSibling.innerText;
+	  var newCalories = parseInt(event.target.parentNode.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.innerText);
 	  var foodId = parseInt(event.target.id.substring(15));
 	  fetch('https://blooming-sea-65150.herokuapp.com/api/v1/foods/' + foodId, {
 	    method: 'PATCH',
@@ -407,8 +408,8 @@
 
 	var foodMaker = function foodMaker(tr) {
 	  var collection = $(tr).find('td');
-	  var foodName = collection[0].innerText;
-	  var foodCalories = collection[1].innerText;
+	  var foodName = collection[1].innerText;
+	  var foodCalories = collection[2].innerText;
 	  return { name: foodName, calories: foodCalories };
 	};
 
