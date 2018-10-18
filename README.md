@@ -1,5 +1,5 @@
 # QUANTIFIEDself Front-end
-QUANTIFIEDself is a web application that tracks food with calories, and four different meals with foods.  A typical day is calculated to include 2000 calories, and each food eaten in a meal will subtract its corresponding calories from this total count.  You can also select different foods and view reicpes that utilize these ingredients, powered by the Yummly API.
+QUANTIFIEDself is a web application that tracks food with calories, and four different meals with foods.  A typical day is calculated to include 2000 calories, and each food eaten in a meal will subtract its corresponding calories from this total count.  You can also select different foods and view recipes that utilize these ingredients, powered by the Yummly API.
 
 ## Production Link
 https://jplynch35.github.io/quantified-self-fe/
