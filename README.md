@@ -2,9 +2,9 @@
 
 ## Initial Setup
 
-1. Clone this starter kit repository and rename the repository to `quantified-self-fe` in one command
+1. Clone the repository down locally
 
-  ```shell
+  ```
   git clone git@github.com:turingschool-examples/qs-fe-starter-kit.git quantified-self-fe
   ```
 2. Change into the `quantified-self-fe` directory
