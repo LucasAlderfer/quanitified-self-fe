@@ -6,6 +6,12 @@ https://jplynch35.github.io/quantified-self-fe/
 
 ## Usage
 #### Foods
+The foods page allows you to create new foods along with their calorie count to the collection of foods, these foods can then be added to meals on the meals page.  Foods can be added be filling in the food name field with the name of the food and the calories field with the number of calories and then clicking on the 'Add Food' button.  
+You can search through the listed foods by typing in the name of a food in the 'Filter by name' field, you do not need to submit the search, the list of foods will react as you type in the name of the food that you are looking for.  
+You can change the information of any food listed by just clicking into the field, either the name or calories of the listed food, and then the 'Save' button will activate when a change has been made and once clicked the database will save the changes.  
+Foods can be removed from the list by clicking on the Delete button on the corresponding row.  
+Recipes for specific foods, or recipes that contiain multiple foods can be found by checking the box for a food or multiple foods and then clicking on the 'Look for Recipes' button at the bottom of the list.  This button will redirect to a new page with a list of recipes being served from the Yummly API.
+
 
 #### Meals
 The meals page allows you to assign foods to meals (Breakfast, Lunch, Dinner, and Snacks). Each food added will total the meal calories and be added to the total calorie count, shown at the bottom.
