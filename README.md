@@ -4,6 +4,9 @@ QUANTIFIEDself is a web application that tracks food with calories, and four dif
 ## Production Link
 https://lucasalderfer.github.io/quantified-self-fe/
 
+## Backend Repository
+https://github.com/LucasAlderfer/quanitified-self-be
+
 ## Usage
 #### Foods
 The foods page allows you to create new foods along with their calorie count to the collection of foods, these foods can then be added to meals on the meals page.  Foods can be added be filling in the food name field with the name of the food and the calories field with the number of calories and then clicking on the 'Add Food' button.  
